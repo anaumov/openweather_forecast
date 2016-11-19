@@ -1,0 +1,127 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.text {
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #FF0000;
+}
+.b-forecasts__main {
+  min-width: 375px;
+}
+.b-header {
+  background: #646E7B;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.b-cities {
+  background: rgba(255, 255, 255, 0.2);
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-sizing: border-box;
+  padding-bottom: 3px;
+  overflow: hidden;
+  cursor: text;
+}
+
+.b-cities__item_input {
+  color: #ECECEC;
+  font-size: 0.75rem;
+
+  border: 0;
+  outline: none;
+  background: transparent;
+
+  margin-top: 6px;
+  margin-left: 2px;
+  padding: 10px 5px 10px 5px;
+}
+.b-cities__item {
+  color: #ECECEC;
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+
+  position: relative;
+  padding: 10px 2px 9px 8px;
+  margin-top: 4px;
+  margin-left: 4px;
+  display: inline-block;
+  vertical-align: top;
+}
+.b-cities__item_close {
+  color: #ECECEC;
+  font-size: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.b-cities__item_close:focus {
+  outline: none;
+}
+.b-city-forecasts {
+  padding: 5%;
+}
+.b-city-forecast {
+  float: left;
+  margin: 10px 20px 0 0;
+  width: 340px;
+  box-sizing: border-box;
+  border: 1px solid #E0E5E8;
+  border-radius: 2px;
+  padding: 16px 0px 4px 16px;
+}
+.b-city-forecast__info {
+  float: left;
+  width: 33.33333333%;
+  box-sizing: border-box;
+}
+.b-city-forecast__title{
+  font-size: 1rem;
+  margin: 0;
+}
+.b-city-forecast__main {
+  text-align: center;
+}
+.b-city-forecast__main-temparature {
+  color: #4C5766;
+  font-size: 2rem;
+  line-height: 1rem;
+  font-weight: bold;
+  position: relative;
+}
+.b-city-forecast__main-temparature:after {
+  content: '℃';
+  font-weight: normal;
+  font-size: 0.625rem;
+  position: absolute;
+  bottom: 8px;
+}
+.b-city-forecast__main-desc {
+  line-height: 2.05rem;
+}
+.b-city-forecast__additional {
+  padding-right: 14px;
+  text-align: right;
+}
+.b-city-forecast__additional-humidity {
+  line-height: 1.2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .b-cities {
+    width: 90%;
+  }
+  .b-city-forecast {
+    width: 100%;
+  }
+}
+@media only screen and (max-width : 480px) {
+}
+
+.h-mini-grey {
+  color: #A1A8AF;
+  font-size: 0.75rem;
+}

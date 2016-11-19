@@ -1,0 +1,10 @@
+export const DATA_FETCHED = 'DATA_FETCHED';
+export const DATA_SUCCEEDED = 'DATA_SUCCEEDED';
+export const DATA_FAILED = 'DATA_FAILED';
+export const TITLE_CHANGED = 'TITLE_CHANGED';
+
+export const ADD_CITY = 'CITIES:ADD';
+export const ADD_CITIES = 'CITIES:ADD_LIST';
+export const REMOVE_CITY = 'CITIES:REMOVE';
+export const REMOVE_LAST_CITY = 'CITIES:REMOVE_LAST';
+export const ADD_WEATHER_DATA = 'CITIES:ADD_WEATHER_DATA';

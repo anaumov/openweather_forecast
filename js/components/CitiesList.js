@@ -16,18 +16,22 @@ class CitiesList extends Component {
     this.removeCity = this.removeCity.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   componentDidMount() {
     this.textInput.focus();
+    this.setState({focused: true});
   }
 
   render() {
     const {cities} = this.props;
     const {inputStyle} = this.state;
+    const inputClasses = this.state.focused ? 'b-cities b-cities--focused' : 'b-cities'
     return(
       <div
-        className='b-cities'
+        className={inputClasses}
         onClick={this.handleClick}
         ref={(div) => {this.wrapper = div;}}
       >
@@ -39,16 +43,27 @@ class CitiesList extends Component {
           className='b-cities__item_input'
           onChange={this.handleChange}
           onKeyDown={this.handleKeyPress}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
           ref={(input) => { this.textInput = input; }}
         />
       </div>
     )
   }
 
+  handleFocus() {
+    this.setState({focused: true});
+  }
+
+  handleBlur() {
+    this.setState({focused: false});
+  }
+
   handleClick(event) {
     if (event.target == this.wrapper) {
       this.textInput.focus();
     }
+    this.setState({focused: true});
   }
 
   handleChange(event) {
@@ -64,7 +79,7 @@ class CitiesList extends Component {
   }
 
   handleKeyPress(event) {
-    const inputValue = event.target.value
+    const inputValue = event.target.value.trim();
     switch (event.keyCode) {
       case ENTER_KEY:
         if (inputValue.length > 0) {

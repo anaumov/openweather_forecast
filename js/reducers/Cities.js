@@ -6,10 +6,12 @@ const capitalize = (s) => {
   const trimmed = s.trim();
   return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
 };
-const buildCity = (cityTitle) => ({
+const buildCity = (cityTitle, state='idle') => ({
   title: capitalize(cityTitle),
+  state: state,
   weather: null
 });
+
 const defaultState = {cities: []};
 const mpsToKph = (speed) => Math.round(speed * 3.6 * 10) / 10
 
@@ -23,7 +25,12 @@ const parsedData = (rawData) => ({
 
 const updateCityWeather = (cities, cityTitle, rawWeatherData) => {
   const updated = _.reject(cities, { title: cityTitle });
-  return [...updated, { title: cityTitle, weather: parsedData(rawWeatherData) }];
+  return [...updated, { title: cityTitle, state: 'done', weather: parsedData(rawWeatherData) }];
+}
+
+const updateCityState = (cities, cityTitle, state) => {
+  const updated = _.reject(cities, { title: cityTitle });
+  return [...updated, buildCity(cityTitle, 'fail')];
 }
 
 const CitiesReducer = (state = defaultState, action) => {
@@ -33,6 +40,10 @@ const CitiesReducer = (state = defaultState, action) => {
         return state;
       }
       return { ...state, cities: [...state.cities, buildCity(action.city)] };
+    case ActionTypes.SEARCHING_FOR:
+      return {...state, cities: updateCityState(state.cities, action.city, 'fetching')}
+    case ActionTypes.FAIL_FETHCHING:
+      return {...state, cities: updateCityState(state.cities, action.city, 'fail')}
     case ActionTypes.ADD_CITIES:
       const newCities = _.reject(
         action.cities,

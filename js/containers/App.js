@@ -15,11 +15,11 @@ export default React.createClass({
         <Provider store={store}>
           <Home />
         </Provider>
+        {/* only renders when running in DEV mode */
+          renderDevTools(store)
+        }
 
       </div>
     );
   }
 });
-// {/* only renders when running in DEV mode */
-//   renderDevTools(store)
-// }

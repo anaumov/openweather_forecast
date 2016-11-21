@@ -26,6 +26,10 @@ body {
   cursor: text;
 }
 
+.b-cities--focused {
+  background: white;
+}
+
 .b-cities__item_input {
   color: #ECECEC;
   font-size: 0.75rem;
@@ -38,6 +42,10 @@ body {
   margin-left: 2px;
   padding: 10px 5px 10px 5px;
 }
+.b-cities__item_input:focus {
+  color: black;
+}
+
 .b-cities__item {
   color: #ECECEC;
   font-size: 0.75rem;
@@ -60,6 +68,9 @@ body {
 }
 .b-cities__item_close:focus {
   outline: none;
+}
+.b-city-forecasts__empty-title {
+  text-align: center;
 }
 .b-city-forecasts {
   padding: 5%;

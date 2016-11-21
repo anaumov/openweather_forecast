@@ -21,13 +21,24 @@ class CityForecast extends Component {
   render() {
     const {city} = this.props;
     const {weather} = city;
+
+    if (city.state === 'fail') {
+      return (
+        <div className='b-city-forecast'>
+          <div className='b-city-forecast__title-wrap'>
+            <h6 className='b-city-forecast__title'>{city.title}</h6>
+            <span className='h-mini-grey'>City {city.title} does not exist.</span>
+          </div>
+        </div>
+      );
+    }
+
     if (weather === null){
       return (
         <div className='b-city-forecast'>
           <div className='b-city-forecast__title-wrap'>
-            <h6>{city.title}</h6>
-          </div>
-          <div className='b-city-forecast__info'>
+            <h6 className='b-city-forecast__title'>{city.title}</h6>
+            <span className='h-mini-grey'>Searching for {city.title} forecast...</span>
           </div>
         </div>
       );
